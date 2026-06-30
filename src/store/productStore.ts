@@ -1,6 +1,12 @@
 import { create } from "zustand";
 
 import { getProducts } from "../services/productApi";
+import {
+  getFavoriteProducts,
+  getTheme,
+  saveFavoriteProducts,
+  saveTheme,
+} from "../services/storage";
 
 import type { Product, SortType, ThemeType } from "../types";
 import { toast } from "react-toastify";
@@ -15,7 +21,7 @@ interface ProductStore {
   rating: number;
   sort: SortType;
 
-  favoriteIds: number[];
+  favoriteProducts: Product[];
 
   theme: ThemeType;
 
@@ -30,7 +36,7 @@ interface ProductStore {
   setRating: (rating: number) => void;
   setSort: (sort: SortType) => void;
 
-  toggleFavorite: (id: number) => void;
+  toggleFavorite: (product: Product) => void;
   toggleTheme: () => void;
 }
 
@@ -43,9 +49,9 @@ export const useProductStore = create<ProductStore>((set) => ({
   rating: 0,
   sort: "asc",
 
-  favoriteIds: [],
+  favoriteProducts: getFavoriteProducts(),
 
-  theme: "light",
+  theme: getTheme(),
 
   loading: false,
   error: "",
@@ -85,26 +91,39 @@ export const useProductStore = create<ProductStore>((set) => ({
 
   setSort: (sort) => set({ sort }),
 
-  toggleFavorite: (id) =>
+  toggleFavorite: (product) =>
     set((state) => {
-      const favoriteIds = state.favoriteIds.includes(id)
-        ? state.favoriteIds.filter((favoriteId) => favoriteId !== id)
-        : [...state.favoriteIds, id];
-      const exists = state.favoriteIds.includes(id);
+      const isFavorite = state.favoriteProducts.some(
+        (favoriteProduct) => favoriteProduct.id === product.id,
+      );
 
-      if (exists) {
+      const favoriteProducts = isFavorite
+        ? state.favoriteProducts.filter(
+            (favoriteProduct) => favoriteProduct.id !== product.id,
+          )
+        : [...state.favoriteProducts, product];
+
+      saveFavoriteProducts(favoriteProducts);
+
+      if (isFavorite) {
         toast.info("Removed from favorites");
       } else {
         toast.success("Added to favorites ❤️");
       }
 
       return {
-        favoriteIds,
+        favoriteProducts,
       };
     }),
 
   toggleTheme: () =>
-    set((state) => ({
-      theme: state.theme === "light" ? "dark" : "light",
-    })),
+    set((state) => {
+      const theme = state.theme === "light" ? "dark" : "light";
+
+      saveTheme(theme);
+
+      return {
+        theme,
+      };
+    }),
 }));

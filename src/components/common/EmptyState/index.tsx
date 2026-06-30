@@ -1,11 +1,16 @@
 import styles from "./index.module.css";
 
-const EmptyState = () => {
+const EmptyState = ({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) => {
   return (
     <div className={styles.container}>
-      <h2>No products found</h2>
-
-      <p>Try changing your search or filters.</p>
+      <h2>{title}</h2>
+      <p>{description}</p>
     </div>
   );
 };

@@ -56,7 +56,10 @@ const Home = () => {
       {filteredProducts.length ? (
         <ProductGrid products={filteredProducts} />
       ) : (
-        <EmptyState />
+        <EmptyState
+          title="No products found"
+          description="Try changing your search, filters or refresh the page."
+        />
       )}
     </>
   );

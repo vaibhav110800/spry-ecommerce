@@ -9,9 +9,11 @@ import { FaHeart } from "react-icons/fa";
 import { useProductStore } from "../../../store/productStore";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { favoriteIds, toggleFavorite } = useProductStore();
+  const { favoriteProducts, toggleFavorite } = useProductStore();
 
-  const isFavorite = favoriteIds.includes(product.id);
+  const isFavorite = favoriteProducts.some(
+    (favoriteProduct) => favoriteProduct.id === product.id,
+  );
 
   return (
     <article
@@ -38,7 +40,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 
       <button
         className={styles.favoriteButton}
-        onClick={() => toggleFavorite(product.id)}
+        onClick={() => toggleFavorite(product)}
       >
         {isFavorite ? <FaHeart className={styles.favorite} /> : <FiHeart />}
       </button>

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { FiHeart, FiMoon } from "react-icons/fi";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import Dropdown from "../common/Dropdown";
 import Input from "../common/Input";
@@ -11,6 +12,8 @@ import { useProductStore } from "../../store/productStore";
 import styles from "./index.module.css";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const {
     categories,
 
@@ -24,7 +27,7 @@ const Header = () => {
     setRating,
     setSort,
 
-    favoriteIds,
+    favoriteProducts,
     toggleTheme,
   } = useProductStore();
 
@@ -40,7 +43,9 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <h1 className={styles.logo}>ShopEase</h1>
+        <h1 className={styles.logo} onClick={() => navigate("/")}>
+          Spry E-commerce
+        </h1>
 
         <div className={styles.search}>
           <Input
@@ -71,11 +76,16 @@ const Header = () => {
             <FiMoon />
           </button>
 
-          <button className={styles.iconButton}>
+          <button
+            className={`${styles.iconButton} ${
+              location.pathname === "/favorites" ? styles.active : ""
+            }`}
+            onClick={() => navigate("/favorites")}
+          >
             <FiHeart />
 
-            {favoriteIds.length > 0 && (
-              <span className={styles.badge}>{favoriteIds.length}</span>
+            {favoriteProducts.length > 0 && (
+              <span className={styles.badge}>{favoriteProducts.length}</span>
             )}
           </button>
         </div>
