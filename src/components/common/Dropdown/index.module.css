@@ -1,0 +1,14 @@
+.dropdown {
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  outline: none;
+  transition: var(--transition);
+}
+
+.dropdown:focus {
+  border-color: var(--color-primary);
+}

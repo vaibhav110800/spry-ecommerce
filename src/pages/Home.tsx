@@ -5,6 +5,7 @@ import ProductGrid from "../components/product/ProductGrid";
 import { getProducts } from "../services/productApi";
 
 import type { Product } from "../types";
+import Header from "../components/header";
 
 const Home = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,7 +26,12 @@ const Home = () => {
     return <h2>Loading...</h2>;
   }
 
-  return <ProductGrid products={products} />;
+  return (
+    <>
+      <Header />
+      <ProductGrid products={products} />
+    </>
+  );
 };
 
 export default Home;
