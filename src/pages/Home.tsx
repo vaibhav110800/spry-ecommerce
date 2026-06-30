@@ -8,6 +8,7 @@ import { filterProducts } from "../utils/filterProducts";
 import { sortProducts } from "../utils/sortProducts";
 import Header from "../components/Header";
 import EmptyState from "../components/common/EmptyState";
+import Loader from "../components/common/Loader";
 
 const Home = () => {
   const {
@@ -42,7 +43,7 @@ const Home = () => {
   }, [products, search, category, rating, sort]);
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <Loader />;
   }
 
   if (error) {
