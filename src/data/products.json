@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+    "name": "Essence Mascara Lash Princess",
+    "price": 9.99,
+    "category": "beauty",
+    "rating": 2.56
+  },
+  {
+    "id": 2,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp",
+    "name": "Eyeshadow Palette with Mirror",
+    "price": 19.99,
+    "category": "beauty",
+    "rating": 2.86
+  },
+  {
+    "id": 3,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
+    "name": "Powder Canister",
+    "price": 14.99,
+    "category": "beauty",
+    "rating": 4.64
+  },
+  {
+    "id": 4,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp",
+    "name": "Red Lipstick",
+    "price": 12.99,
+    "category": "beauty",
+    "rating": 4.36
+  },
+  {
+    "id": 5,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp",
+    "name": "Red Nail Polish",
+    "price": 8.99,
+    "category": "beauty",
+    "rating": 4.32
+  },
+  {
+    "id": 6,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp",
+    "name": "Calvin Klein CK One",
+    "price": 49.99,
+    "category": "fragrances",
+    "rating": 4.37
+  },
+  {
+    "id": 7,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp",
+    "name": "Chanel Coco Noir Eau De",
+    "price": 129.99,
+    "category": "fragrances",
+    "rating": 4.26
+  },
+  {
+    "id": 8,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp",
+    "name": "Dior J'adore",
+    "price": 89.99,
+    "category": "fragrances",
+    "rating": 3.8
+  },
+  {
+    "id": 9,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp",
+    "name": "Dolce Shine Eau de",
+    "price": 69.99,
+    "category": "fragrances",
+    "rating": 3.96
+  },
+  {
+    "id": 10,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp",
+    "name": "Gucci Bloom Eau de",
+    "price": 79.99,
+    "category": "fragrances",
+    "rating": 2.74
+  },
+  {
+    "id": 11,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp",
+    "name": "Annibale Colombo Bed",
+    "price": 1899.99,
+    "category": "furniture",
+    "rating": 4.77
+  },
+  {
+    "id": 12,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp",
+    "name": "Annibale Colombo Sofa",
+    "price": 2499.99,
+    "category": "furniture",
+    "rating": 3.92
+  },
+  {
+    "id": 13,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp",
+    "name": "Bedside Table African Cherry",
+    "price": 299.99,
+    "category": "furniture",
+    "rating": 2.87
+  },
+  {
+    "id": 14,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp",
+    "name": "Knoll Saarinen Executive Conference Chair",
+    "price": 499.99,
+    "category": "furniture",
+    "rating": 4.88
+  },
+  {
+    "id": 15,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp",
+    "name": "Wooden Bathroom Sink With Mirror",
+    "price": 799.99,
+    "category": "furniture",
+    "rating": 3.59
+  },
+  {
+    "id": 16,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp",
+    "name": "Apple",
+    "price": 1.99,
+    "category": "groceries",
+    "rating": 4.19
+  },
+  {
+    "id": 17,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/beef-steak/thumbnail.webp",
+    "name": "Beef Steak",
+    "price": 12.99,
+    "category": "groceries",
+    "rating": 4.47
+  },
+  {
+    "id": 18,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/cat-food/thumbnail.webp",
+    "name": "Cat Food",
+    "price": 8.99,
+    "category": "groceries",
+    "rating": 3.13
+  },
+  {
+    "id": 19,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/thumbnail.webp",
+    "name": "Chicken Meat",
+    "price": 9.99,
+    "category": "groceries",
+    "rating": 3.19
+  },
+  {
+    "id": 20,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp",
+    "name": "Cooking Oil",
+    "price": 4.99,
+    "category": "groceries",
+    "rating": 4.8
+  },
+  {
+    "id": 21,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/cucumber/thumbnail.webp",
+    "name": "Cucumber",
+    "price": 1.49,
+    "category": "groceries",
+    "rating": 4.07
+  },
+  {
+    "id": 22,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/dog-food/thumbnail.webp",
+    "name": "Dog Food",
+    "price": 10.99,
+    "category": "groceries",
+    "rating": 4.55
+  },
+  {
+    "id": 23,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/eggs/thumbnail.webp",
+    "name": "Eggs",
+    "price": 2.99,
+    "category": "groceries",
+    "rating": 2.53
+  },
+  {
+    "id": 24,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/thumbnail.webp",
+    "name": "Fish Steak",
+    "price": 14.99,
+    "category": "groceries",
+    "rating": 3.78
+  },
+  {
+    "id": 25,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/thumbnail.webp",
+    "name": "Green Bell Pepper",
+    "price": 1.29,
+    "category": "groceries",
+    "rating": 3.25
+  },
+  {
+    "id": 26,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp",
+    "name": "Green Chili Pepper",
+    "price": 0.99,
+    "category": "groceries",
+    "rating": 3.66
+  },
+  {
+    "id": 27,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/thumbnail.webp",
+    "name": "Honey Jar",
+    "price": 6.99,
+    "category": "groceries",
+    "rating": 3.97
+  },
+  {
+    "id": 28,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/thumbnail.webp",
+    "name": "Ice Cream",
+    "price": 5.49,
+    "category": "groceries",
+    "rating": 3.39
+  },
+  {
+    "id": 29,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp",
+    "name": "Juice",
+    "price": 3.99,
+    "category": "groceries",
+    "rating": 3.94
+  },
+  {
+    "id": 30,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp",
+    "name": "Kiwi",
+    "price": 2.49,
+    "category": "groceries",
+    "rating": 4.93
+  }
+]
