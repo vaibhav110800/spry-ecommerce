@@ -28,6 +28,11 @@
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
 
+  /* Colors */
+  --color-crimson: #dc143c;
+  --color-crimson-rgb: 220, 20, 60;
+  --color-white: white;
+
   /* Borders */
   --color-border: #dbe3ec;
 

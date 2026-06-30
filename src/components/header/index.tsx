@@ -24,6 +24,7 @@ const Header = () => {
     setRating,
     setSort,
 
+    favoriteIds,
     toggleTheme,
   } = useProductStore();
 
@@ -72,6 +73,10 @@ const Header = () => {
 
           <button className={styles.iconButton}>
             <FiHeart />
+
+            {favoriteIds.length > 0 && (
+              <span className={styles.badge}>{favoriteIds.length}</span>
+            )}
           </button>
         </div>
       </div>

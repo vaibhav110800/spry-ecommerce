@@ -3,6 +3,7 @@ import { create } from "zustand";
 import { getProducts } from "../services/productApi";
 
 import type { Product, SortType, ThemeType } from "../types";
+import { toast } from "react-toastify";
 
 interface ProductStore {
   /* State */
@@ -85,11 +86,22 @@ export const useProductStore = create<ProductStore>((set) => ({
   setSort: (sort) => set({ sort }),
 
   toggleFavorite: (id) =>
-    set((state) => ({
-      favoriteIds: state.favoriteIds.includes(id)
+    set((state) => {
+      const favoriteIds = state.favoriteIds.includes(id)
         ? state.favoriteIds.filter((favoriteId) => favoriteId !== id)
-        : [...state.favoriteIds, id],
-    })),
+        : [...state.favoriteIds, id];
+      const exists = state.favoriteIds.includes(id);
+
+      if (exists) {
+        toast.info("Removed from favorites");
+      } else {
+        toast.success("Added to favorites ❤️");
+      }
+
+      return {
+        favoriteIds,
+      };
+    }),
 
   toggleTheme: () =>
     set((state) => ({
