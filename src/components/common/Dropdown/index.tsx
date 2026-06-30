@@ -1,4 +1,4 @@
-import type { DropdownProps } from "../../../types/dropdown";
+import type { DropdownProps } from "../../../types";
 import styles from "./index.module.css";
 
 const Dropdown = <T extends string | number>({

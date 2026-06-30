@@ -10,9 +10,3 @@ export const getProducts = async (): Promise<Product[]> => {
 
   return products as Product[];
 };
-
-export const getProductCategories = async (): Promise<string[]> => {
-  await delay();
-
-  return ["All", ...new Set(products.map((product) => product.category))];
-};

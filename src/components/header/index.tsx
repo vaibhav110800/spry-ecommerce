@@ -1,25 +1,31 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { FiHeart, FiMoon } from "react-icons/fi";
 
 import Dropdown from "../common/Dropdown";
 import Input from "../common/Input";
 
-import { getProductCategories } from "../../services/productApi";
 import { ratingOptions, sortOptions } from "../../utils/constant";
+
+import { useProductStore } from "../../store/productStore";
 
 import styles from "./index.module.css";
 
 const Header = () => {
-  const [categories, setCategories] = useState<string[]>([]);
+  const {
+    categories,
 
-  useEffect(() => {
-    const loadCategories = async () => {
-      const data = await getProductCategories();
-      setCategories(data);
-    };
+    search,
+    category,
+    rating,
+    sort,
 
-    loadCategories();
-  }, []);
+    setSearch,
+    setCategory,
+    setRating,
+    setSort,
+
+    toggleTheme,
+  } = useProductStore();
 
   const categoryOptions = useMemo(
     () =>
@@ -37,22 +43,30 @@ const Header = () => {
 
         <div className={styles.search}>
           <Input
-            value=""
+            value={search}
             placeholder="Search products..."
-            onChange={() => {}}
+            onChange={setSearch}
           />
         </div>
 
         <div className={styles.filters}>
-          <Dropdown value="All" options={categoryOptions} onChange={() => {}} />
+          <Dropdown
+            value={category}
+            options={categoryOptions}
+            onChange={setCategory}
+          />
 
-          <Dropdown value={0} options={ratingOptions} onChange={() => {}} />
+          <Dropdown
+            value={rating}
+            options={ratingOptions}
+            onChange={setRating}
+          />
 
-          <Dropdown value="" options={sortOptions} onChange={() => {}} />
+          <Dropdown value={sort} options={sortOptions} onChange={setSort} />
         </div>
 
         <div className={styles.actions}>
-          <button className={styles.iconButton}>
+          <button className={styles.iconButton} onClick={toggleTheme}>
             <FiMoon />
           </button>
 

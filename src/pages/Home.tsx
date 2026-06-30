@@ -1,30 +1,21 @@
-import { useEffect, useState } from "react";
-
 import ProductGrid from "../components/product/ProductGrid";
 
-import { getProducts } from "../services/productApi";
-
-import type { Product } from "../types";
 import Header from "../components/header";
+import { useProductStore } from "../store/productStore";
+import { useEffect } from "react";
 
 const Home = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { products, loading, error, fetchProducts } = useProductStore();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const data = await getProducts();
-
-      setProducts(data);
-      setLoading(false);
-    };
-
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   if (loading) {
     return <h2>Loading...</h2>;
   }
+
+  if (error) return <h2>{error}</h2>;
 
   return (
     <>
