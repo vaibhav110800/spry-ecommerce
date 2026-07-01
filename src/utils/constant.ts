@@ -1,5 +1,7 @@
 export const NETWORK_DELAY = 500;
 
+export const PRODUCTS_PER_PAGE = 8;
+
 export const ratingOptions = [
   { label: "All Ratings", value: 0 },
   { label: "4★ & Above", value: 4 },

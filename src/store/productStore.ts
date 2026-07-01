@@ -20,6 +20,7 @@ interface ProductStore {
   category: string;
   rating: number;
   sort: SortType;
+  currentPage: number;
 
   favoriteProducts: Product[];
 
@@ -35,6 +36,7 @@ interface ProductStore {
   setCategory: (category: string) => void;
   setRating: (rating: number) => void;
   setSort: (sort: SortType) => void;
+  setCurrentPage: (page: number) => void;
 
   toggleFavorite: (product: Product) => void;
   toggleTheme: () => void;
@@ -48,6 +50,7 @@ export const useProductStore = create<ProductStore>((set) => ({
   category: "All",
   rating: 0,
   sort: "asc",
+  currentPage: 1,
 
   favoriteProducts: getFavoriteProducts(),
 
@@ -83,13 +86,34 @@ export const useProductStore = create<ProductStore>((set) => ({
     }
   },
 
-  setSearch: (search) => set({ search }),
+  setSearch: (search) =>
+    set({
+      search,
+      currentPage: 1,
+    }),
 
-  setCategory: (category) => set({ category }),
+  setCategory: (category) =>
+    set({
+      category,
+      currentPage: 1,
+    }),
 
-  setRating: (rating) => set({ rating }),
+  setRating: (rating) =>
+    set({
+      rating,
+      currentPage: 1,
+    }),
 
-  setSort: (sort) => set({ sort }),
+  setSort: (sort) =>
+    set({
+      sort,
+      currentPage: 1,
+    }),
+
+  setCurrentPage: (page) =>
+    set({
+      currentPage: page,
+    }),
 
   toggleFavorite: (product) =>
     set((state) => {

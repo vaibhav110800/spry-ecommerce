@@ -3,11 +3,13 @@ import { useMemo } from "react";
 import Header from "../components/Header";
 import EmptyState from "../components/common/EmptyState";
 import ProductGrid from "../components/product/ProductGrid";
+import Pagination from "../components/common/Pagination";
 
 import { useProductStore } from "../store/productStore";
 
 import { filterProducts } from "../utils/filterProducts";
 import { sortProducts } from "../utils/sortProducts";
+import { PRODUCTS_PER_PAGE } from "../utils/constant";
 
 const Favorites = () => {
   const {
@@ -17,6 +19,8 @@ const Favorites = () => {
     category,
     rating,
     sort,
+    currentPage,
+    setCurrentPage,
   } = useProductStore();
 
   const visibleProducts = useMemo(() => {
@@ -33,12 +37,27 @@ const Favorites = () => {
     });
   }, [favoriteProducts, search, category, rating, sort]);
 
+  const totalPages = Math.ceil(visibleProducts.length / PRODUCTS_PER_PAGE);
+
+  const paginatedProducts = visibleProducts.slice(
+    (currentPage - 1) * PRODUCTS_PER_PAGE,
+    currentPage * PRODUCTS_PER_PAGE,
+  );
+
   return (
     <>
       <Header />
 
       {visibleProducts.length ? (
-        <ProductGrid products={visibleProducts} />
+        <>
+          <ProductGrid products={paginatedProducts} />
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        </>
       ) : (
         <EmptyState
           title="No favorite products found ❤️"
