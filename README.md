@@ -1,75 +1,179 @@
-# React + TypeScript + Vite
+# Spry E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive e-commerce application built with **React, TypeScript, and Zustand**. The application allows users to browse products, search, filter, sort, mark favorites, switch themes, and enjoy a smooth shopping experience with a clean and reusable architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Demo
 
-## React Compiler
+- **Application:** https://spry-ecommerce-ljoubjopk-spry-ecommerce.vercel.app/
+- **Demo Video:** https://shorturl.at/eaTYK
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Zustand
+- React Router DOM
+- CSS Modules
+- React Icons
+- React Toastify
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Browse products in a responsive grid
+- Search products (Debounced Search)
+- Filter by category
+- Filter by minimum rating
+- Sort products by price (Ascending / Descending)
+- Pagination
+- Mark/Unmark favorite products
+- Favorites page
+- Favorites persisted using Local Storage
+- Light/Dark theme with persistence
+- Loading state
+- Empty state for no products/favorites
+- Toast notifications for user actions
+- Fully responsive across desktop, tablet, and mobile devices
 
+---
+
+## Architecture
+
+The project follows a modular and scalable folder structure.
+
+- **components/** – Reusable UI components (Header, Product Card, Dropdown, Input, Pagination, Empty State, etc.)
+- **hooks/** – Custom reusable hooks (e.g. `useDebounce`)
+- **pages/** – Route-level components
+- **services/** – Mock API and Local Storage services
+- **store/** – Zustand global state management
+- **types/** – Shared TypeScript interfaces and types
+- **utils/** – Pure helper functions (filtering, sorting, formatting, constants)
+
+---
+
+## State Management
+
+The application uses **Zustand** for global state management.
+
+### Why Zustand?
+
+- Minimal boilerplate compared to Redux
+- Simpler and more lightweight than Context API for application-wide state
+- Easy to read and maintain
+- Avoids unnecessary Provider nesting
+- Perfect for the scale of this application
+
+Global state includes:
+
+- Products
+- Search
+- Filters
+- Sorting
+- Favorites
+- Theme
+- Loading & Error states
+
+---
+
+## Reusable Hooks & Utilities
+
+### Custom Hook
+
+- **useDebounce**
+  - Optimizes product search by reducing unnecessary state updates while typing.
+
+### Utility Functions
+
+- `filterProducts` – Filters products based on search, category, and rating.
+- `sortProducts` – Sorts products by price.
+- `formatCurrency` – Formats product prices consistently.
+- `constants` – Centralized application constants.
+
+Keeping business logic outside components improves readability, reusability, and testability.
+
+---
+
+## Accessibility & SEO
+
+The application follows basic accessibility and semantic HTML best practices.
+
+- Semantic HTML (`header`, `main`, etc.)
+- Descriptive image `alt` attributes
+- `aria-label` added to icon-only buttons
+- Proper heading hierarchy
+- Meaningful page structure for improved SEO
+
+---
+
+## Theme Support
+
+- Light and Dark mode
+- Theme persisted using Local Storage
+- Implemented using CSS Variables
+- Smooth transition between themes
+
+---
+
+## Responsive Design
+
+The application is responsive across:
+
+- Desktop
+- Tablet
+- Mobile devices
+
+The layout adapts using flexible grids and responsive CSS to provide a consistent user experience across screen sizes.
+
+---
+
+## Loading & Empty States
+
+To improve user experience:
+
+- Simulated API loading state while fetching products
+- Dedicated Empty State component for:
+  - No search results
+  - No favorite products
+
+---
+
+## Code Quality
+
+The project emphasizes maintainability by following clean coding practices.
+
+- TypeScript throughout the project
+- Reusable components
+- Modular CSS using CSS Modules
+- Reusable hooks and utility functions
+- Consistent folder structure
+- Comments added across the codebase where necessary to improve readability and explain important implementation decisions
+
+---
+
+## Installation
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Future Improvements
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Skeleton loaders
+- Unit testing
+- Product details page
+- Server-side pagination
+- Wishlist synchronization with backend
+- Product API integration
 
-```
+---
+
+Thank you for reviewing the project!
