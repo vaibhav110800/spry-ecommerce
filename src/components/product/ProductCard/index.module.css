@@ -18,6 +18,7 @@
 
 .image {
   width: 100%;
+  aspect-ratio: 1;
   height: auto;
   object-fit: cover;
 }
@@ -60,6 +61,11 @@
 
 .favoriteButton:hover {
   transform: scale(1.08);
+}
+
+.favoriteButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-active-rgb), 0.15);
 }
 
 .favorite {

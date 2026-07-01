@@ -20,7 +20,11 @@
   flex-shrink: 0;
   font-size: 1.75rem;
   font-weight: 700;
+}
+
+.logoButton {
   color: var(--color-primary);
+  text-align: left;
   cursor: pointer;
 }
 
@@ -88,6 +92,13 @@
 .iconButton:hover {
   background: var(--color-background);
   border-color: var(--color-primary);
+}
+
+.logoButton:focus-visible,
+.iconButton:focus-visible {
+  outline: none;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 3px rgba(var(--color-active-rgb), 0.15);
 }
 
 @media (max-width: 1199px) {

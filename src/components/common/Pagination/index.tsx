@@ -13,12 +13,14 @@ const Pagination = ({
   }
 
   return (
-    <div className={styles.pagination}>
+    <nav className={styles.pagination} aria-label="Product pagination">
       <button
+        type="button"
+        aria-label="Go to previous page"
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        <GrPrevious />
+        <GrPrevious aria-hidden />
       </button>
 
       <div className={styles.pages}>
@@ -26,6 +28,9 @@ const Pagination = ({
           (page) => (
             <button
               key={page}
+              type="button"
+              aria-label={`Go to page ${page}`}
+              aria-current={currentPage === page ? "page" : undefined}
               onClick={() => onPageChange(page)}
               className={currentPage === page ? styles.active : ""}
             >
@@ -36,12 +41,14 @@ const Pagination = ({
       </div>
 
       <button
+        type="button"
+        aria-label="Go to next page"
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        <GrNext />
+        <GrNext aria-hidden />
       </button>
-    </div>
+    </nav>
   );
 };
 

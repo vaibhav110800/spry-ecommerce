@@ -52,13 +52,21 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <h1 className={styles.logo} onClick={() => navigate("/")}>
-          Spry E-commerce
+        <h1 className={styles.logo}>
+          <button
+            className={styles.logoButton}
+            type="button"
+            onClick={() => navigate("/")}
+            aria-label="Go to home page"
+          >
+            Spry E-commerce
+          </button>
         </h1>
 
         <div className={styles.search}>
           <Input
             value={searchValue}
+            label="Search products"
             placeholder="Search products..."
             onChange={setSearchValue}
           />
@@ -67,34 +75,55 @@ const Header = () => {
         <div className={styles.filters}>
           <Dropdown
             value={category}
+            label="Filter by category"
             options={categoryOptions}
             onChange={setCategory}
           />
 
           <Dropdown
             value={rating}
+            label="Filter by rating"
             options={ratingOptions}
             onChange={setRating}
           />
 
-          <Dropdown value={sort} options={sortOptions} onChange={setSort} />
+          <Dropdown
+            value={sort}
+            label="Sort products"
+            options={sortOptions}
+            onChange={setSort}
+          />
         </div>
 
         <div className={styles.actions}>
-          <button className={styles.iconButton} onClick={toggleTheme}>
-            {theme === "light" ? <FiMoon /> : <FiSun />}
+          <button
+            className={styles.iconButton}
+            type="button"
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? <FiMoon aria-hidden /> : <FiSun aria-hidden />}
           </button>
 
           <button
             className={`${styles.iconButton} ${
               location.pathname === "/favorites" ? styles.active : ""
             }`}
+            type="button"
+            aria-label={`View favorites${
+              favoriteProducts.length ? `, ${favoriteProducts.length} saved` : ""
+            }`}
+            aria-current={
+              location.pathname === "/favorites" ? "page" : undefined
+            }
             onClick={() => navigate("/favorites")}
           >
-            <FiHeart />
+            <FiHeart aria-hidden />
 
             {favoriteProducts.length > 0 && (
-              <span className={styles.badge}>{favoriteProducts.length}</span>
+              <span className={styles.badge} aria-hidden>
+                {favoriteProducts.length}
+              </span>
             )}
           </button>
         </div>

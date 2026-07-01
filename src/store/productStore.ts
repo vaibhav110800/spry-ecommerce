@@ -40,7 +40,7 @@ interface ProductStore {
  * Global store for managing product data, filters, favorites,
  * pagination, theme, and related actions.
  */
-export const useProductStore = create<ProductStore>((set) => ({
+export const useProductStore = create<ProductStore>((set, get) => ({
   products: [],
   categories: [],
   search: "",
@@ -58,6 +58,12 @@ export const useProductStore = create<ProductStore>((set) => ({
    * and updates the loading/error state.
    */
   fetchProducts: async () => {
+    const { loading, products } = get();
+
+    if (loading || products.length > 0) {
+      return;
+    }
+
     try {
       set({
         loading: true,

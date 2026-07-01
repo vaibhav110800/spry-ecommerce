@@ -34,15 +34,26 @@ const ProductCard = ({ product }: { product: Product }) => {
         <div className={styles.footer}>
           <span>{formatCurrency(product.price)}</span>
 
-          <span>⭐ {product.rating}</span>
+          <span aria-label={`Rated ${product.rating} out of 5`}>
+            <span aria-hidden>⭐</span> {product.rating}
+          </span>
         </div>
       </div>
 
       <button
         className={styles.favoriteButton}
+        type="button"
+        aria-label={`${isFavorite ? "Remove" : "Add"} ${product.name} ${
+          isFavorite ? "from" : "to"
+        } favorites`}
+        aria-pressed={isFavorite}
         onClick={() => toggleFavorite(product)}
       >
-        {isFavorite ? <FaHeart className={styles.favorite} /> : <FiHeart />}
+        {isFavorite ? (
+          <FaHeart className={styles.favorite} aria-hidden />
+        ) : (
+          <FiHeart aria-hidden />
+        )}
       </button>
     </article>
   );

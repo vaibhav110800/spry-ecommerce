@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 const Dropdown = <T extends string | number>({
   options,
   value,
+  label,
   placeholder,
   onChange,
 }: DropdownProps<T>) => {
@@ -11,6 +12,7 @@ const Dropdown = <T extends string | number>({
     <select
       className={styles.dropdown}
       value={value}
+      aria-label={label}
       onChange={(e) => onChange(e.target.value as T)}
     >
       {placeholder && <option value="">{placeholder}</option>}

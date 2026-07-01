@@ -10,7 +10,13 @@ const EmptyState = ({
 }) => {
   return (
     <div className={styles.container}>
-      <img className={styles.img} src={noDataImg} alt="no product is present" />
+      <img
+        className={styles.img}
+        src={noDataImg}
+        alt=""
+        aria-hidden
+        loading="lazy"
+      />
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.description}>{description}</p>
     </div>

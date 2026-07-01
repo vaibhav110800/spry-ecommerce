@@ -3,14 +3,14 @@ import styles from "./index.module.css";
 
 const Loader = () => {
   return (
-    <div className={styles.root}>
+    <div className={styles.root} role="status" aria-live="polite">
       <img
         src={LoaderImg}
-        alt="loading"
-        loading="lazy"
+        alt=""
+        aria-hidden
         className={styles.loaderImg}
       />
-      <p>Loading....</p>
+      <p>Loading...</p>
     </div>
   );
 };
