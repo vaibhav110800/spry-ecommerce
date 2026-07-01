@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { FiHeart, FiMoon } from "react-icons/fi";
+import { FiHeart, FiMoon, FiSun } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import Dropdown from "../common/Dropdown";
@@ -21,6 +21,7 @@ const Header = () => {
     category,
     rating,
     sort,
+    theme,
 
     setSearch,
     setCategory,
@@ -73,7 +74,7 @@ const Header = () => {
 
         <div className={styles.actions}>
           <button className={styles.iconButton} onClick={toggleTheme}>
-            <FiMoon />
+            {theme === "light" ? <FiMoon /> : <FiSun />}
           </button>
 
           <button

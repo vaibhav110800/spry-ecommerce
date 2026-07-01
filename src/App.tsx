@@ -5,8 +5,15 @@ import Favorites from "./pages/Favorites";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useProductStore } from "./store/productStore";
+import { useEffect } from "react";
 
 function App() {
+  const { theme } = useProductStore();
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <BrowserRouter>
       <Routes>

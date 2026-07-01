@@ -11,4 +11,5 @@
 
 .dropdown:focus {
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--color-active-rgb), 0.15);
 }
