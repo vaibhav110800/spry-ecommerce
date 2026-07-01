@@ -15,23 +15,20 @@ import useDebounce from "../../hooks/useDebounce";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const {
-    categories,
-
-    search,
-    category,
-    rating,
-    sort,
-    theme,
-
-    setSearch,
-    setCategory,
-    setRating,
-    setSort,
-
-    favoriteProducts,
-    toggleTheme,
-  } = useProductStore();
+  const categories = useProductStore((state) => state.categories);
+  const search = useProductStore((state) => state.search);
+  const category = useProductStore((state) => state.category);
+  const rating = useProductStore((state) => state.rating);
+  const sort = useProductStore((state) => state.sort);
+  const theme = useProductStore((state) => state.theme);
+  const setSearch = useProductStore((state) => state.setSearch);
+  const setCategory = useProductStore((state) => state.setCategory);
+  const setRating = useProductStore((state) => state.setRating);
+  const setSort = useProductStore((state) => state.setSort);
+  const favoriteProductsCount = useProductStore(
+    (state) => state.favoriteProducts.length,
+  );
+  const toggleTheme = useProductStore((state) => state.toggleTheme);
   const [searchValue, setSearchValue] = useState(search);
 
   const debouncedSearch = useDebounce(searchValue, 400);
@@ -111,7 +108,7 @@ const Header = () => {
             }`}
             type="button"
             aria-label={`View favorites${
-              favoriteProducts.length ? `, ${favoriteProducts.length} saved` : ""
+              favoriteProductsCount ? `, ${favoriteProductsCount} saved` : ""
             }`}
             aria-current={
               location.pathname === "/favorites" ? "page" : undefined
@@ -120,9 +117,9 @@ const Header = () => {
           >
             <FiHeart aria-hidden />
 
-            {favoriteProducts.length > 0 && (
+            {favoriteProductsCount > 0 && (
               <span className={styles.badge} aria-hidden>
-                {favoriteProducts.length}
+                {favoriteProductsCount}
               </span>
             )}
           </button>

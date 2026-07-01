@@ -9,7 +9,8 @@ import { useProductStore } from "./store/productStore";
 import { useEffect } from "react";
 
 function App() {
-  const { theme } = useProductStore();
+  const theme = useProductStore((state) => state.theme);
+
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);

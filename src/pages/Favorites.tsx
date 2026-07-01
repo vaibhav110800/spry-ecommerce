@@ -12,16 +12,13 @@ import { sortProducts } from "../utils/sortProducts";
 import { PRODUCTS_PER_PAGE } from "../utils/constant";
 
 const Favorites = () => {
-  const {
-    favoriteProducts,
-
-    search,
-    category,
-    rating,
-    sort,
-    currentPage,
-    setCurrentPage,
-  } = useProductStore();
+  const favoriteProducts = useProductStore((state) => state.favoriteProducts);
+  const search = useProductStore((state) => state.search);
+  const category = useProductStore((state) => state.category);
+  const rating = useProductStore((state) => state.rating);
+  const sort = useProductStore((state) => state.sort);
+  const currentPage = useProductStore((state) => state.currentPage);
+  const setCurrentPage = useProductStore((state) => state.setCurrentPage);
 
   const visibleProducts = useMemo(() => {
     const filtered = filterProducts({

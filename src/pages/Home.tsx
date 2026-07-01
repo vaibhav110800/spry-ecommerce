@@ -13,18 +13,16 @@ import Pagination from "../components/common/Pagination";
 import { PRODUCTS_PER_PAGE } from "../utils/constant";
 
 const Home = () => {
-  const {
-    products,
-    loading,
-    error,
-    search,
-    category,
-    rating,
-    sort,
-    currentPage,
-    setCurrentPage,
-    fetchProducts,
-  } = useProductStore();
+  const products = useProductStore((state) => state.products);
+  const loading = useProductStore((state) => state.loading);
+  const error = useProductStore((state) => state.error);
+  const search = useProductStore((state) => state.search);
+  const category = useProductStore((state) => state.category);
+  const rating = useProductStore((state) => state.rating);
+  const sort = useProductStore((state) => state.sort);
+  const currentPage = useProductStore((state) => state.currentPage);
+  const setCurrentPage = useProductStore((state) => state.setCurrentPage);
+  const fetchProducts = useProductStore((state) => state.fetchProducts);
 
   useEffect(() => {
     fetchProducts();

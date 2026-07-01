@@ -9,11 +9,12 @@ import { FaHeart } from "react-icons/fa";
 import { useProductStore } from "../../../store/productStore";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { favoriteProducts, toggleFavorite } = useProductStore();
-
-  const isFavorite = favoriteProducts.some(
-    (favoriteProduct) => favoriteProduct.id === product.id,
+  const isFavorite = useProductStore((state) =>
+    state.favoriteProducts.some(
+      (favoriteProduct) => favoriteProduct.id === product.id,
+    ),
   );
+  const toggleFavorite = useProductStore((state) => state.toggleFavorite);
 
   return (
     <article

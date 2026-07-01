@@ -7,10 +7,10 @@ export const THEME_KEY = "theme";
 
 export const ratingOptions: DropdownOption<number>[] = [
   { label: "All Ratings", value: 0 },
-  { label: "4★", value: 4 },
-  { label: "3★", value: 3 },
-  { label: "2★", value: 2 },
-  { label: "1★", value: 1 },
+  { label: "4★ & above", value: 4 },
+  { label: "3★ & above", value: 3 },
+  { label: "2★ & above", value: 2 },
+  { label: "1★ & above", value: 1 },
 ];
 
 export const sortOptions: DropdownOption<SortType>[] = [
