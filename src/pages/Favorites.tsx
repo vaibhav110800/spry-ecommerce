@@ -61,7 +61,7 @@ const Favorites = () => {
       ) : (
         <EmptyState
           title="No favorite products found ❤️"
-          description="Try changing your search or filters."
+          description="Try changing your search, filters or add products from list."
         />
       )}
     </>

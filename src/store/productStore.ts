@@ -15,50 +15,48 @@ interface ProductStore {
   /* State */
   products: Product[];
   categories: string[];
-
   search: string;
   category: string;
   rating: number;
   sort: SortType;
   currentPage: number;
-
   favoriteProducts: Product[];
-
   theme: ThemeType;
-
   loading: boolean;
   error: string;
 
   /* Actions */
   fetchProducts: () => Promise<void>;
-
   setSearch: (search: string) => void;
   setCategory: (category: string) => void;
   setRating: (rating: number) => void;
   setSort: (sort: SortType) => void;
   setCurrentPage: (page: number) => void;
-
   toggleFavorite: (product: Product) => void;
   toggleTheme: () => void;
 }
 
+/**
+ * Global store for managing product data, filters, favorites,
+ * pagination, theme, and related actions.
+ */
 export const useProductStore = create<ProductStore>((set) => ({
   products: [],
   categories: [],
-
   search: "",
   category: "All",
   rating: 0,
   sort: "asc",
   currentPage: 1,
-
   favoriteProducts: getFavoriteProducts(),
-
   theme: getTheme(),
-
   loading: false,
   error: "",
 
+  /**
+   * Fetches products, derives available categories,
+   * and updates the loading/error state.
+   */
   fetchProducts: async () => {
     try {
       set({
@@ -115,6 +113,10 @@ export const useProductStore = create<ProductStore>((set) => ({
       currentPage: page,
     }),
 
+  /**
+   * Adds or removes a product from favorites,
+   * persists the updated list, and displays a toast notification.
+   */
   toggleFavorite: (product) =>
     set((state) => {
       const isFavorite = state.favoriteProducts.some(
@@ -140,6 +142,10 @@ export const useProductStore = create<ProductStore>((set) => ({
       };
     }),
 
+  /**
+   * Toggles between light and dark themes
+   * and persists the selected preference.
+   */
   toggleTheme: () =>
     set((state) => {
       const theme = state.theme === "light" ? "dark" : "light";

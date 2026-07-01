@@ -1,8 +1,9 @@
 import type { DropdownOption, SortType } from "../types";
 
 export const NETWORK_DELAY = 500;
-
 export const PRODUCTS_PER_PAGE = 8;
+export const FAVORITES_KEY = "favorite-products";
+export const THEME_KEY = "theme";
 
 export const ratingOptions: DropdownOption<number>[] = [
   { label: "All Ratings", value: 0 },

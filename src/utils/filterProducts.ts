@@ -1,5 +1,9 @@
 import type { FilterProductsParams, Product } from "../types";
 
+/**
+ * Filters products based on search text, selected category,
+ * and minimum rating.
+ */
 export const filterProducts = ({
   products,
   search,

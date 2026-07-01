@@ -1,11 +1,9 @@
 .grid {
   max-width: var(--container-width);
-  margin: 40px auto;
+  margin: var(--spacing-xxl) auto;
   padding: 0 var(--spacing-md);
-
   display: grid;
   gap: 24px;
-
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -15,7 +13,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
   }

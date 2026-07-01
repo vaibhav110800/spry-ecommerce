@@ -1,5 +1,9 @@
 import type { Product, SortProductsParams } from "../types";
 
+/**
+ * Returns a new array of products sorted by price
+ * in ascending or descending order.
+ */
 export const sortProducts = ({
   products,
   sort,

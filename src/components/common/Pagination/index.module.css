@@ -1,5 +1,5 @@
 .pagination {
-  margin: 32px auto;
+  margin: var(--spacing-xl) auto;
 
   display: flex;
   justify-content: center;
@@ -17,18 +17,12 @@
 .pagination button {
   min-width: 40px;
   height: 40px;
-
   color: var(--color-text);
-
-  padding: 0 14px;
-
+  padding: 0 var(--spacing-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-
   background: var(--color-surface);
-
   cursor: pointer;
-
   transition: var(--transition);
 }
 
@@ -43,7 +37,5 @@
 }
 
 .active {
-  background: var(--color-primary) !important;
-  color: var(--color-white);
   border-color: var(--color-primary) !important;
 }

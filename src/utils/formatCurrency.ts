@@ -1,3 +1,6 @@
+/**
+ * Formats a numeric price as Indian Rupee (INR) currency.
+ */
 export const formatCurrency = (price: number): string =>
   new Intl.NumberFormat("en-IN", {
     style: "currency",
