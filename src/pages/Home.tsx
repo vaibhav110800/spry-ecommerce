@@ -6,7 +6,7 @@ import { useProductStore } from "../store/productStore";
 
 import { filterProducts } from "../utils/filterProducts";
 import { sortProducts } from "../utils/sortProducts";
-import Header from "../components/Header";
+import Header from "../components/header";
 import EmptyState from "../components/common/EmptyState";
 import Loader from "../components/common/Loader";
 import Pagination from "../components/common/Pagination";

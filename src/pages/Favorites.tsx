@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import Header from "../components/Header";
+import Header from "../components/header";
 import EmptyState from "../components/common/EmptyState";
 import ProductGrid from "../components/product/ProductGrid";
 import Pagination from "../components/common/Pagination";

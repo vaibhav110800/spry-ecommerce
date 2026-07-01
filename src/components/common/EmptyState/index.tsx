@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import noDataImg from "../../../asset/NoData.png";
+import noDataImg from "../../../assets/NoData.png";
 
 const EmptyState = ({
   title,
