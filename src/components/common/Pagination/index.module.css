@@ -1,11 +1,9 @@
 .pagination {
   margin: var(--spacing-xl) auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
-
   flex-wrap: wrap;
 }
 

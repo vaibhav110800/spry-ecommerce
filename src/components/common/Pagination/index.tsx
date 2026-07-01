@@ -1,6 +1,7 @@
 import type { PaginationProps } from "../../../types";
 
 import styles from "./index.module.css";
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 const Pagination = ({
   currentPage,
@@ -17,7 +18,7 @@ const Pagination = ({
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        Previous
+        <GrPrevious />
       </button>
 
       <div className={styles.pages}>
@@ -38,7 +39,7 @@ const Pagination = ({
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        Next
+        <GrNext />
       </button>
     </div>
   );
