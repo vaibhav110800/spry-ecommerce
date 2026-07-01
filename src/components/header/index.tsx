@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FiHeart, FiMoon, FiSun } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -10,6 +10,7 @@ import { ratingOptions, sortOptions } from "../../utils/constant";
 import { useProductStore } from "../../store/productStore";
 
 import styles from "./index.module.css";
+import useDebounce from "../../hooks/useDebounce";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -31,6 +32,13 @@ const Header = () => {
     favoriteProducts,
     toggleTheme,
   } = useProductStore();
+  const [searchValue, setSearchValue] = useState(search);
+
+  const debouncedSearch = useDebounce(searchValue, 400);
+
+  useEffect(() => {
+    setSearch(debouncedSearch);
+  }, [debouncedSearch, setSearch]);
 
   const categoryOptions = useMemo(
     () =>
@@ -50,9 +58,9 @@ const Header = () => {
 
         <div className={styles.search}>
           <Input
-            value={search}
+            value={searchValue}
             placeholder="Search products..."
-            onChange={setSearch}
+            onChange={setSearchValue}
           />
         </div>
 
