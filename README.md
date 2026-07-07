@@ -6,8 +6,8 @@ A modern, responsive e-commerce application built with **React, TypeScript, and 
 
 ## Live Demo
 
-- **Application:** https://spry-ecommerce-ljoubjopk-spry-ecommerce.vercel.app/
-- **Demo Video:** https://shorturl.at/eaTYK
+- **Application:** [Live Vercel Link](https://spry-ecommerce.vercel.app/)
+- **Demo Video:** [G-drive Link](https://shorturl.at/eaTYK)
 
 ---
 
