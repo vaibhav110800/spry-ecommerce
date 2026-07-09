@@ -5,6 +5,11 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.sentinel {
+  height: 1px;
+  width: 100%;
+}
+
 @media (max-width: 1199px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);

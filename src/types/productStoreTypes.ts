@@ -13,12 +13,12 @@ export interface FiltersSlice {
   category: string;
   rating: number;
   sort: SortType;
-  currentPage: number;
+  // currentPage: number;
   setSearch: (search: string) => void;
   setCategory: (category: string) => void;
   setRating: (rating: number) => void;
   setSort: (sort: SortType) => void;
-  setCurrentPage: (page: number) => void;
+  // setCurrentPage: (page: number) => void;
 }
 
 export interface FavoritesSlice {
