@@ -1,13 +1,11 @@
 import styles from "./index.module.css";
-
 import { formatCurrency } from "../../../utils/formatCurrency";
 import type { Product } from "../../../types";
-
 import { FiHeart, FiShoppingBag, FiStar, FiTruck } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { toast } from "react-toastify";
-
 import { useProductStore } from "../../../store/productStore";
+import fallbackImg from "../../../assets/fallbackImg.png";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const isFavorite = useProductStore((state) =>
@@ -23,7 +21,7 @@ const ProductCard = ({ product }: { product: Product }) => {
     >
       <img
         className={styles.image}
-        src={product.image}
+        src={product.image ?? fallbackImg}
         alt={product.name}
         loading="lazy"
       />

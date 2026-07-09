@@ -78,6 +78,7 @@ const Header = () => {
             label="Filter by category"
             options={categoryOptions}
             onChange={setCategory}
+            disabled={!categoryOptions.length}
           />
 
           <Dropdown

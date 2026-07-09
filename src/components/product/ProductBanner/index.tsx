@@ -2,6 +2,7 @@ import { useProductStore } from "../../../store/productStore";
 import type { Product } from "../../../types";
 import styles from "./index.module.css";
 import { formatCurrency } from "../../../utils/formatCurrency";
+import fallbackImg from "../../../assets/fallbackImg.png";
 
 const ProductBanner = ({
   products,
@@ -46,7 +47,7 @@ const ProductBanner = ({
         <div className={styles.heroShowcase} aria-hidden>
           {heroProducts.map((product, index) => (
             <div className={styles.showcaseItem} key={product.id}>
-              <img src={product.image} alt="" />
+              <img src={product.image ?? fallbackImg} alt="" />
               <span>{index === 0 ? "Trending" : product.category}</span>
             </div>
           ))}
