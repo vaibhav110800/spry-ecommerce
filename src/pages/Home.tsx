@@ -1,53 +1,12 @@
-import { useEffect, useMemo } from "react";
-
-import ProductGrid from "../components/product/ProductGrid";
-
 import { useProductStore } from "../store/productStore";
 
-import { filterProducts } from "../utils/filterProducts";
-import { sortProducts } from "../utils/sortProducts";
 import Header from "../components/header";
-import EmptyState from "../components/common/EmptyState";
 import Loader from "../components/common/Loader";
-import Pagination from "../components/common/Pagination";
-import { PRODUCTS_PER_PAGE } from "../utils/constant";
+import ProductWrapper from "../components/product/ProductWrapper";
 
 const Home = () => {
-  const products = useProductStore((state) => state.products);
   const loading = useProductStore((state) => state.loading);
   const error = useProductStore((state) => state.error);
-  const search = useProductStore((state) => state.search);
-  const category = useProductStore((state) => state.category);
-  const rating = useProductStore((state) => state.rating);
-  const sort = useProductStore((state) => state.sort);
-  const currentPage = useProductStore((state) => state.currentPage);
-  const setCurrentPage = useProductStore((state) => state.setCurrentPage);
-  const fetchProducts = useProductStore((state) => state.fetchProducts);
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
-
-  const filteredProducts = useMemo(() => {
-    const filtered = filterProducts({
-      products,
-      search,
-      category,
-      rating,
-    });
-
-    return sortProducts({
-      products: filtered,
-      sort,
-    });
-  }, [products, search, category, rating, sort]);
-
-  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
-
-  const paginatedProducts = filteredProducts.slice(
-    (currentPage - 1) * PRODUCTS_PER_PAGE,
-    currentPage * PRODUCTS_PER_PAGE,
-  );
 
   if (loading) {
     return <Loader />;
@@ -61,22 +20,7 @@ const Home = () => {
     <>
       <Header />
 
-      {filteredProducts.length ? (
-        <>
-          <ProductGrid products={paginatedProducts} />
-
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
-        </>
-      ) : (
-        <EmptyState
-          title="No products found"
-          description="Try changing your search, filters or refresh the page."
-        />
-      )}
+      <ProductWrapper />
     </>
   );
 };

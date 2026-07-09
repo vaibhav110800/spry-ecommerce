@@ -10,6 +10,7 @@ import { useProductStore } from "../store/productStore";
 import { filterProducts } from "../utils/filterProducts";
 import { sortProducts } from "../utils/sortProducts";
 import { PRODUCTS_PER_PAGE } from "../utils/constant";
+import Wrapper from "../components/common/Wrapper";
 
 const Favorites = () => {
   const favoriteProducts = useProductStore((state) => state.favoriteProducts);
@@ -46,7 +47,7 @@ const Favorites = () => {
       <Header />
 
       {visibleProducts.length ? (
-        <>
+        <Wrapper>
           <ProductGrid products={paginatedProducts} />
 
           <Pagination
@@ -54,7 +55,7 @@ const Favorites = () => {
             totalPages={totalPages}
             onPageChange={setCurrentPage}
           />
-        </>
+        </Wrapper>
       ) : (
         <EmptyState
           title="No favorite products found ❤️"

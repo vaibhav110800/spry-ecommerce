@@ -12,6 +12,11 @@ const delay = () =>
  * Fetches the list of products after a simulated network delay.
  */
 export const getProducts = async (): Promise<Product[]> => {
+  // Actual API call
+  // const response = await fetch("https://dummyjson.com/products");
+  // const result = await response.json();
+
+  // return result.products as Product[];
   await delay();
 
   return products as Product[];

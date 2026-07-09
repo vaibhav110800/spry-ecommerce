@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { FiHeart, FiMoon, FiSun } from "react-icons/fi";
+import { FiHeart, FiMoon, FiShoppingBag, FiSun } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import Dropdown from "../common/Dropdown";
@@ -56,6 +56,9 @@ const Header = () => {
             onClick={() => navigate("/")}
             aria-label="Go to home page"
           >
+            <span className={styles.logoIcon} aria-hidden>
+              <FiShoppingBag />
+            </span>
             Spry E-commerce
           </button>
         </h1>
