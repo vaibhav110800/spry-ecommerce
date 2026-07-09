@@ -12,6 +12,7 @@ import { sortProducts } from "../utils/sortProducts";
 import { PRODUCTS_PER_PAGE } from "../utils/constant";
 import Wrapper from "../components/common/Wrapper";
 import { useFavoriteProducts } from "../hooks/useFavoriteProducts";
+import { Helmet } from "react-helmet-async";
 
 const Favorites = () => {
   const favoriteProducts = useFavoriteProducts();
@@ -45,6 +46,13 @@ const Favorites = () => {
 
   return (
     <>
+      <Helmet>
+        <title>My Favorites | Spry E-commerce</title>
+        <meta
+          name="description"
+          content="View and manage your favorite products saved on Spry E-commerce."
+        />
+      </Helmet>
       <Header />
 
       {visibleProducts.length ? (
