@@ -26,7 +26,7 @@ const Header = () => {
   const setRating = useProductStore((state) => state.setRating);
   const setSort = useProductStore((state) => state.setSort);
   const favoriteProductsCount = useProductStore(
-    (state) => state.favoriteProducts.length,
+    (state) => state.favoriteProductIds.length,
   );
   const toggleTheme = useProductStore((state) => state.toggleTheme);
   const [searchValue, setSearchValue] = useState(search);

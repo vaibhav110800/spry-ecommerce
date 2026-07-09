@@ -9,9 +9,7 @@ import fallbackImg from "../../../assets/fallbackImg.png";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const isFavorite = useProductStore((state) =>
-    state.favoriteProducts.some(
-      (favoriteProduct) => favoriteProduct.id === product.id,
-    ),
+    state.favoriteProductIds.includes(product.id),
   );
   const toggleFavorite = useProductStore((state) => state.toggleFavorite);
 

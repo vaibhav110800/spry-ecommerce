@@ -11,9 +11,10 @@ import { filterProducts } from "../utils/filterProducts";
 import { sortProducts } from "../utils/sortProducts";
 import { PRODUCTS_PER_PAGE } from "../utils/constant";
 import Wrapper from "../components/common/Wrapper";
+import { useFavoriteProducts } from "../hooks/useFavoriteProducts";
 
 const Favorites = () => {
-  const favoriteProducts = useProductStore((state) => state.favoriteProducts);
+  const favoriteProducts = useFavoriteProducts();
   const search = useProductStore((state) => state.search);
   const category = useProductStore((state) => state.category);
   const rating = useProductStore((state) => state.rating);

@@ -3,4 +3,5 @@ export * from "./filters";
 export * from "./input";
 export * from "./pagination";
 export * from "./product";
+export * from "./productStoreTypes";
 export * from "./theme";
