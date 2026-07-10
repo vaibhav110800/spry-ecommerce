@@ -7,6 +7,7 @@ const Dropdown = <T extends string | number>({
   label,
   placeholder,
   onChange,
+  disabled,
 }: DropdownProps<T>) => {
   return (
     <select
@@ -14,6 +15,7 @@ const Dropdown = <T extends string | number>({
       value={value}
       aria-label={label}
       onChange={(e) => onChange(e.target.value as T)}
+      disabled={disabled}
     >
       {placeholder && <option value="">{placeholder}</option>}
 

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { FiHeart, FiMoon, FiSun } from "react-icons/fi";
+import { FiHeart, FiMoon, FiShoppingBag, FiSun } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import Dropdown from "../common/Dropdown";
@@ -26,7 +26,7 @@ const Header = () => {
   const setRating = useProductStore((state) => state.setRating);
   const setSort = useProductStore((state) => state.setSort);
   const favoriteProductsCount = useProductStore(
-    (state) => state.favoriteProducts.length,
+    (state) => state.favoriteProductIds.length,
   );
   const toggleTheme = useProductStore((state) => state.toggleTheme);
   const [searchValue, setSearchValue] = useState(search);
@@ -56,6 +56,9 @@ const Header = () => {
             onClick={() => navigate("/")}
             aria-label="Go to home page"
           >
+            <span className={styles.logoIcon} aria-hidden>
+              <FiShoppingBag />
+            </span>
             Spry E-commerce
           </button>
         </h1>
@@ -75,6 +78,7 @@ const Header = () => {
             label="Filter by category"
             options={categoryOptions}
             onChange={setCategory}
+            disabled={!categoryOptions.length}
           />
 
           <Dropdown

@@ -9,4 +9,5 @@ export interface DropdownProps<T extends string | number = string> {
   label: string;
   placeholder?: string;
   onChange: (value: T) => void;
+  disabled?: boolean;
 }

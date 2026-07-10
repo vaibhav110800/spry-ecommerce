@@ -1,18 +1,15 @@
 import styles from "./index.module.css";
-
 import { formatCurrency } from "../../../utils/formatCurrency";
 import type { Product } from "../../../types";
-
-import { FiHeart } from "react-icons/fi";
+import { FiHeart, FiShoppingBag, FiStar, FiTruck } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
-
+import { toast } from "react-toastify";
 import { useProductStore } from "../../../store/productStore";
+import fallbackImg from "../../../assets/fallbackImg.png";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const isFavorite = useProductStore((state) =>
-    state.favoriteProducts.some(
-      (favoriteProduct) => favoriteProduct.id === product.id,
-    ),
+    state.favoriteProductIds.includes(product.id),
   );
   const toggleFavorite = useProductStore((state) => state.toggleFavorite);
 
@@ -22,22 +19,39 @@ const ProductCard = ({ product }: { product: Product }) => {
     >
       <img
         className={styles.image}
-        src={product.image}
+        src={product.image ?? fallbackImg}
         alt={product.name}
         loading="lazy"
       />
 
       <div className={styles.content}>
+        <div className={styles.metaRow}>
+          <span className={styles.category}>{product.category}</span>
+
+          <span
+            className={styles.rating}
+            aria-label={`Rated ${product.rating} out of 5`}
+          >
+            <FiStar aria-hidden /> {product.rating}
+          </span>
+        </div>
+
         <h3>{product.name}</h3>
 
-        <p>{product.category}</p>
+        <p className={styles.delivery}>
+          <FiTruck aria-hidden /> Free delivery
+        </p>
 
         <div className={styles.footer}>
-          <span>{formatCurrency(product.price)}</span>
+          <span className={styles.price}>{formatCurrency(product.price)}</span>
 
-          <span aria-label={`Rated ${product.rating} out of 5`}>
-            <span aria-hidden>⭐</span> {product.rating}
-          </span>
+          <button
+            className={styles.cartButton}
+            type="button"
+            onClick={() => toast.success(`${product.name} added to cart`)}
+          >
+            <FiShoppingBag aria-hidden /> Add
+          </button>
         </div>
       </div>
 

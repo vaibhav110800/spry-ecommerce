@@ -3,8 +3,10 @@
   top: 0;
   z-index: 100;
   width: 100%;
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(var(--color-surface-rgb), 0.92);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  backdrop-filter: blur(18px);
 }
 
 .container {
@@ -18,25 +20,56 @@
 
 .logo {
   flex-shrink: 0;
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   font-weight: 700;
 }
 
 .logoButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   color: var(--color-primary);
   text-align: left;
   cursor: pointer;
 }
 
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
 .search {
+  position: relative;
   flex: 1;
   min-width: 250px;
+}
+
+.search::before {
+  content: "⌕";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  z-index: 1;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search input {
+  padding-left: var(--spacing-xl);
 }
 
 .filters {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .filters select {
@@ -51,14 +84,14 @@
 
 .iconButton {
   position: relative;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  background: var(--color-surface);
+  background: rgba(var(--color-surface-rgb), 0.76);
   cursor: pointer;
   transition: var(--transition);
 }
@@ -131,16 +164,21 @@
 
 @media (max-width: 600px) {
   .header {
-    position: static;
+    position: sticky;
   }
 
   .container {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     gap: 10px;
   }
 
   .logo {
-    font-size: 1.35rem;
+    font-size: 1.08rem;
+  }
+
+  .logoIcon {
+    width: 34px;
+    height: 34px;
   }
 
   .iconButton {
@@ -152,7 +190,7 @@
     display: flex;
     gap: 8px;
     overflow-x: auto;
-    padding-bottom: 2px;
+    padding-bottom: var(--spacing-xxs);
     scrollbar-width: none;
   }
 
